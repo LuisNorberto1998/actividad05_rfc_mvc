@@ -29,11 +29,12 @@ public class ControllerRfc implements ActionListener {
     }
 
     private void btnConsultar() {
-        modelRfc.setaPaterno(modelRfc.rfcObtener(viewRfc.jtfAP.getText()));
-        modelRfc.setaMaterno(viewRfc.jtfAM.getText());
-        modelRfc.setNombre(viewRfc.jtfNombre.getText());
-        modelRfc.setFechaNacimiento(viewRfc.jdcFechaNac.getDateFormatString());
-        JOptionPane.showMessageDialog(null, "rfc", "RFC", JOptionPane.INFORMATION_MESSAGE);
+        modelRfc.setaPaterno(modelRfc.rfcObtenerPP(viewRfc.jtfAP.getText()));
+        modelRfc.setaMaterno(modelRfc.rfcObtenerSP(viewRfc.jtfAM.getText()));
+        modelRfc.setNombre(modelRfc.rfcObtenerN(viewRfc.jtfNombre.getText()));
+        modelRfc.setFechaNacimiento(modelRfc.fechaactual(viewRfc.jdcFechaNac.getDate()));
+        String rfcFinal = modelRfc.getaPaterno() + modelRfc.getaMaterno() + modelRfc.getNombre() + modelRfc.getFechaNacimiento();
+        JOptionPane.showMessageDialog(null, rfcFinal, "RFC", JOptionPane.INFORMATION_MESSAGE);
     }
     
     private void inintComp() {
